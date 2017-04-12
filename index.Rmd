@@ -1,0 +1,27 @@
+--- 
+title: "Introduction to R Programming"
+author: "DSCOE Team"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+description: "This is an introduction to R Programming, and will be used as the pre-requisite for several data science courses"
+---
+
+
+
+These five lessons are designed to provide a person with the fundamental understanding of the R Programming language.  It will cover data structures, data manipulation, as well as basic data visualization.  The recommended learning approach is to install R and RStudio on a computer or cloud node, and follow along with the provided material and videos.
+
+# Basic Data Structures
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'lubridate', 'dplyr', 'ggplot2', 'tidyr'
+), 'packages.bib')
+```

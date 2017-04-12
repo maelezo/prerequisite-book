@@ -1,0 +1,156 @@
+# Introduction to Control Structures
+
+This lesson will cover the ``if-then`` statement as well as the ``for`` loop and ``while`` loop.  These are two very common control structures for all computer programming languages, and are used extensively in the R Programming Language.  
+
+## If - else Statements
+
+The ``if-then`` statement allows us to automate decision points and guide the computer through a data flow diagram. The basic syntax is given below:
+
+```{r, eval=FALSE}
+if(<condition>) {
+  ## do something
+} else if{
+  ## do something else
+} else {
+  ## do something completely different
+}
+
+
+```
+
+
+The else clause is not always necessary, and many times we just need an if statement:
+
+```{r, eval = FALSE}
+if(<condition>) {
+  ## do something
+}
+
+```
+
+The ``if-else`` statement is most often used in *loops* and *functions*.  We'll illustrate the use of the ``if-then`` statement in *loops* below.  
+
+## Loops
+
+Loops provide a way to systematically walk down a data structure (usually a vector, data frame, or list) and accomplish a task.  The ``for`` loop and the ``while`` loop will be the primary loops for this class.  The ``for`` loop is used when we know ahead of time a finite number of iterations that we need to execute (for example, we execute a task for every object in a vector/list or every row in a data frame). 
+
+The ``for`` loop below iterates over the values 1, 2, 3, 4, and 5 and prints each of the values.  
+
+```{r}
+for(i in 1:5){
+  print(i)
+}
+
+```
+
+Notice that we can also use i to access a value in a vector, a row in a data frame, or an object in a list.  
+
+```{r}
+letters <- c("a", "b", "c", "d", "e", "f")
+
+for(i in 1:4){
+  print(letters[i])
+}
+
+```
+
+You also don't have to start with 1, or use the letter *i*:
+
+```{r}
+for (year in 2010:2015){
+  print(paste("The year is", year))
+}
+```
+
+
+The ``next`` command is often used to skip an iteration if a certain condition is met.  The code below illustrates how to use the ``next``
+
+```{r}
+for(i in 1:5){
+  if(letters[i]=="c"){
+    next
+  }
+  print(letters[i])
+}
+
+```
+
+Loops can also be nested inside of each other.  This is useful when working with multiple dimensions (like matrices) or subsets of subsets (for example, the outer ``for`` loop iterates over countries, the inner ``for`` loop iterates over each city in a given country.  An example of a nested ``for`` loop is given below, creating a multiplication table:
+
+
+```{r}
+# nested for: multiplication table
+mymat = matrix(nrow=10, ncol=10) # create a 30 x 30 matrix (of 30 rows and 30 columns)
+
+for(i in 1:nrow(mymat)) {  # for each row
+  for(j in 1:ncol(mymat)){ # for each column
+    mymat[i,j] = i*j     # assign values based on position: product of two indexes
+  }
+}
+
+mymat
+```
+The ``while`` loop is used when we don't know how many iterations we need to go through, but we know the condition that needs to be met before we are done.  
+
+
+```{r}
+i <- 5
+while(i <= 25) {
+  print(i)
+  i <- i + 5
+}
+
+```
+
+To finish out this lesson, we'll provide an example below of a some more sophisticated code.  This function simulates a round of play in the board game _RISK_.  In the board game _RISK_, and attacker begins an assault against a defender, and the win/loss is adjudicated as both players begin rolling dice and comparing values.  The simulation below plays through this entire series, declares whether the attacker or the defender won, and declares the number of armies left on the board for each player.  Instead of doing this once, this code plays through this 10,000 times, and in the process calculates the probability of the *attacher* winning.  This type of process is known as Monte Carlo Simulation.  While you may not fully understand all aspects of this code, note throughout this function how important *loops* and ``if-else`` statements are:
+
+```{r}
+
+risk <- function(attacker, defender, n=10000) {
+  results <- rep(NA, n)
+for(j in 1:n){
+while(attacker > 1 & defender > 0) {
+ atk.dice <- min(attacker-1, 3)
+ def.dice <- min(defender, 2)
+ atk.roll <- ceiling(runif(atk.dice)*6)
+ def.roll <- ceiling(runif(def.dice)*6)
+ atk.roll <- atk.roll[order(atk.roll,decreasing=T)]
+ def.roll <- def.roll[order(def.roll,decreasing=T)]
+ comparison <- min(atk.dice, def.dice)
+ for (i in 1:comparison) {
+  if (atk.roll[i] > def.roll[i]) defender <- defender-1
+  if (atk.roll[i] <= def.roll[i]) attacker <- attacker-1
+ }
+}
+if (defender==0) results[j] <- "Attacker"
+if (defender>0) results[j] <- "Defender"
+}
+
+print(paste("The Probability of the Attacker winning is: ",length(results[results=="Attacker"])/n))
+}
+
+```
+
+Now will illustrate how this function is used:
+
+```{r}
+risk(attacker=12,defender=6)
+```
+
+
+##Practice Problem
+
+Use the instructions below to determine and visualize the average rating by movie genres
+
+- Read the Movie Ratings Data into R
+- Use the code below to build a vector called ``genres`` that contains all unique genre names contained in the data set.
+
+
+```{r, eval = FALSE}
+library(stringr)
+genres <- unique(unlist(str_split(rating$genres,"\\|")))
+```
+
+- Create a vector object that is the same length as genres to contain the ``mean`` ratings
+- Iterate over your original data set in a ``for`` loop, use the ``grep`` command to extract the subset that is related to a specific genre, and calculate the mean rating for that genre
+- Create a barplot visualization of average ratings by genre

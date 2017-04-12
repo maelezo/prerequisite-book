@@ -1,0 +1,152 @@
+# Introduction to Dates in R
+
+We often see dates and times in data.  Often each record (or row) of data is connected to at least one date or time.  Similar to Microsoft Excel, R has a special class or format that it uses to work with dates.  
+
+## Dates with Base R
+
+We will start by showing a few of the date commands that are built into the Base R package (later on we will take a look at the *lubridate* package [@R-lubridate], which has some more user friendly functions.)
+
+First we will demonstrate a couple commands that will generate the current date for your system (either your physical computer or your cloud computer).  Below is the system date:
+
+```{r}
+Sys.Date()
+
+```
+
+Next we will show the system time down to hours, minutes, and seconds with the Time Zone:
+
+```{r}
+Sys.time()
+
+```
+
+Note that that these are not character objects:
+
+```{r}
+class(Sys.Date())
+
+```
+
+This is a special class called the *Date* class.  When you read data into R, your fields that have dates are normally converted to the *character* class, not the *date* class.  In order to convert from a *character* class to the *date* class in Base R, use the code below. 
+
+```{r}
+# Create a character vector of random dates
+myDates <- c("2016-02-07", "2016-04-02","2016-06-28")
+
+#Convert character vector to dates vector
+myDates <- as.Date(myDates)
+
+myDates
+
+```
+
+Now we'll check to make sure we've converted it to the proper class of data:
+
+```{r}
+class(myDates)
+
+```
+
+Now that this is a date object, we can conduct mathematical operations that we could not conduct with a character vector, like subtracting 5 days from all dates:
+
+```{r}
+myDates - 5
+
+```
+
+or checking the difference between dates:
+
+```{r}
+Sys.Date() - myDates[1]
+
+```
+
+
+
+
+The date formatting code above will only work as described if my input data are formatted exactly as shown, with four-digit years, two-digit months and days, and hyphens in between.  In order to convert dates in a different format, you will use the format parameter and describe your unique date format as seen below:
+
+
+```{r}
+# Create a character vector of random dates
+myDates <- c("02/07/2016", "04/02/2016","06/28/2016")
+
+#Convert character vector to dates vector
+myDates <- as.Date(myDates, format = "%m/%d/%Y")
+
+myDates
+
+```
+
+Below is a table of all the most common date components and their abbreviation.  
+
+Conversion Specification | Definition
+-------------------------| ------------------------------------
+%a  |   Abbreviated weekday 
+%A  |   Full weekday 
+%b  |   Abbreviated month 
+%B  |   Full month 
+%d  |   Day of the month as decimal number (01–31).
+%H  |   Hours as decimal number (00–23)
+%I  |  Hours as decimal number (01–12)
+%m  |  Month as decimal number (01–12)
+%M  |  Minute as decimal number (00–59)
+%p  |  AM/PM indicator in the locale. Used in conjunction with %I and not with %H
+%S  |  Second as integer (00–61), allowing for up to two leap-seconds 
+%w  |  Weekday as decimal number (0–6, Sunday is 0).
+%y  |  Year with two digits (87)
+%Y  |  Year with century (1987)
+%Z  |  Time zone abbreviation as a character string (empty if not available)
+
+## Dates with the Lubridate Package
+
+The *lubridate* package was developed to make date conversions faster and simpler.  This package contains a few basic commands that will convert all of the most common date formats without the user having to specify their unique data format.  
+
+The basic *lubridate* date conversions are ``ymd`` (year-month-day), ``mdy`` (month-day-year), and ``dmy`` (day-month-year). 
+
+We've illustrated how to use these functions below:
+
+```{r,warning=FALSE,message=FALSE}
+library(lubridate)
+ymd("2016-02-07", "2016-04-02","2016-06-28")
+
+
+```
+
+
+Now we'll use ``mdy`` to convert in a different format. 
+
+
+```{r}
+
+mdy("02/07/2016", "04/02/2016","06/28/2016")
+
+```
+
+To show the flexibility of this code, we'll do a final example with ``dmy`` used on a different format data:
+
+```{r}
+dmy("1jan16", "1nov15","15mar17")
+
+```
+
+The *lubridate* commands can be expanded to include hour-minute-seconds as well
+
+```{r}
+
+ymd_hms("2016-10-10 17:46:52", "2016-11-14 12:04:05", "2016-10-22 22:44:58")
+```
+
+If you have times in different time zones, you can add a time zone parameter:
+
+```{r}
+ymd_hms("2016-10-10 17:46:52", tz="Pacific/Aukland")
+```
+
+Note: UTC and GMT are Greenwich Mean Time (also known as "Zulu" time).
+
+
+##POSIXct and POSIXlt
+
+To fully understand how dates work in R, you will need study and understand the POSIXct and POSIXlt classes.  You can learn more about these by typing ``?POSIXct`` or ``?POSIXlt`` respectively.
+
