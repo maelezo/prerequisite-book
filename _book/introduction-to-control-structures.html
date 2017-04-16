@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Introduction to R Programming</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="This is an introduction to R Programming, and will be used as the pre-requisite for several data science courses">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Introduction to R Programming" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is an introduction to R Programming, and will be used as the pre-requisite for several data science courses" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Introduction to R Programming" />
+  
+  <meta name="twitter:description" content="This is an introduction to R Programming, and will be used as the pre-requisite for several data science courses" />
+  
+
+<meta name="author" content="DSCOE Team">
+
+
+<meta name="date" content="2017-04-16">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="basic-visualization.html">
+<link rel="next" href="introduction-to-dates-in-r.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Intro to R Programming</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Basic Data Structures</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#the-r-programming-language"><i class="fa fa-check"></i><b>1.1</b> The R Programming Language</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#r-or-python"><i class="fa fa-check"></i><b>1.1.1</b> R or Python?</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#installation"><i class="fa fa-check"></i><b>1.2</b> Installation</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#r-environment-and-workspace"><i class="fa fa-check"></i><b>1.3</b> R Environment and Workspace</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#types-and-shape-of-data"><i class="fa fa-check"></i><b>1.4</b> Types and Shape of Data</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#data-types"><i class="fa fa-check"></i><b>1.5</b> Data Types</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#data-structures"><i class="fa fa-check"></i><b>1.6</b> Data Structures</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="index.html"><a href="index.html#vector-data-structure"><i class="fa fa-check"></i><b>1.6.1</b> Vector Data Structure</a></li>
+<li class="chapter" data-level="1.6.2" data-path="index.html"><a href="index.html#data-frame-data-structure"><i class="fa fa-check"></i><b>1.6.2</b> Data Frame Data Structure</a></li>
+<li class="chapter" data-level="1.6.3" data-path="index.html"><a href="index.html#list-data-structure"><i class="fa fa-check"></i><b>1.6.3</b> List Data Structure</a></li>
+<li class="chapter" data-level="1.6.4" data-path="index.html"><a href="index.html#matrix-data-structure"><i class="fa fa-check"></i><b>1.6.4</b> Matrix Data Structure</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#inputoutput-data"><i class="fa fa-check"></i><b>1.7</b> Input/Output Data</a></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#getting-help"><i class="fa fa-check"></i><b>1.8</b> Getting Help</a></li>
+<li class="chapter" data-level="1.9" data-path="index.html"><a href="index.html#practice-problem"><i class="fa fa-check"></i><b>1.9</b> Practice Problem</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html"><i class="fa fa-check"></i><b>2</b> Basic Data Manipulation</a><ul>
+<li class="chapter" data-level="2.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#data"><i class="fa fa-check"></i><b>2.1</b> Data</a></li>
+<li class="chapter" data-level="2.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#cell-level-data-access"><i class="fa fa-check"></i><b>2.2</b> Cell level data access</a></li>
+<li class="chapter" data-level="2.3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#table-command-and-an-example-of-data-cleaning"><i class="fa fa-check"></i><b>2.3</b> <code>Table</code> Command (and an example of data “cleaning”)</a></li>
+<li class="chapter" data-level="2.4" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#filter-or-subset-data"><i class="fa fa-check"></i><b>2.4</b> Filter (or subset) data</a></li>
+<li class="chapter" data-level="2.5" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#using-the-grep-and-aggregate-commands"><i class="fa fa-check"></i><b>2.5</b> Using the grep and aggregate commands</a></li>
+<li class="chapter" data-level="2.6" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#summary"><i class="fa fa-check"></i><b>2.6</b> Summary</a></li>
+<li class="chapter" data-level="2.7" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#practice-problem-1"><i class="fa fa-check"></i><b>2.7</b> Practice Problem</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basic-visualization.html"><a href="basic-visualization.html"><i class="fa fa-check"></i><b>3</b> Basic Visualization</a><ul>
+<li class="chapter" data-level="3.1" data-path="basic-visualization.html"><a href="basic-visualization.html#bar-plot"><i class="fa fa-check"></i><b>3.1</b> Bar Plot</a></li>
+<li class="chapter" data-level="3.2" data-path="basic-visualization.html"><a href="basic-visualization.html#pie-plot"><i class="fa fa-check"></i><b>3.2</b> Pie Plot</a></li>
+<li class="chapter" data-level="3.3" data-path="basic-visualization.html"><a href="basic-visualization.html#histogram-plot"><i class="fa fa-check"></i><b>3.3</b> Histogram Plot</a></li>
+<li class="chapter" data-level="3.4" data-path="basic-visualization.html"><a href="basic-visualization.html#time-series-plot"><i class="fa fa-check"></i><b>3.4</b> Time Series Plot</a></li>
+<li class="chapter" data-level="3.5" data-path="basic-visualization.html"><a href="basic-visualization.html#practice-problem-2"><i class="fa fa-check"></i><b>3.5</b> Practice Problem</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="introduction-to-control-structures.html"><a href="introduction-to-control-structures.html"><i class="fa fa-check"></i><b>4</b> Introduction to Control Structures</a><ul>
+<li class="chapter" data-level="4.1" data-path="introduction-to-control-structures.html"><a href="introduction-to-control-structures.html#if---else-statements"><i class="fa fa-check"></i><b>4.1</b> If - else Statements</a></li>
+<li class="chapter" data-level="4.2" data-path="introduction-to-control-structures.html"><a href="introduction-to-control-structures.html#loops"><i class="fa fa-check"></i><b>4.2</b> Loops</a></li>
+<li class="chapter" data-level="4.3" data-path="introduction-to-control-structures.html"><a href="introduction-to-control-structures.html#practice-problem-3"><i class="fa fa-check"></i><b>4.3</b> Practice Problem</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="introduction-to-dates-in-r.html"><a href="introduction-to-dates-in-r.html"><i class="fa fa-check"></i><b>5</b> Introduction to Dates in R</a><ul>
+<li class="chapter" data-level="5.1" data-path="introduction-to-dates-in-r.html"><a href="introduction-to-dates-in-r.html#dates-with-base-r"><i class="fa fa-check"></i><b>5.1</b> Dates with Base R</a></li>
+<li class="chapter" data-level="5.2" data-path="introduction-to-dates-in-r.html"><a href="introduction-to-dates-in-r.html#dates-with-the-lubridate-package"><i class="fa fa-check"></i><b>5.2</b> Dates with the Lubridate Package</a></li>
+<li class="chapter" data-level="5.3" data-path="introduction-to-dates-in-r.html"><a href="introduction-to-dates-in-r.html#posixct-and-posixlt"><i class="fa fa-check"></i><b>5.3</b> POSIXct and POSIXlt</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="exam.html"><a href="exam.html"><i class="fa fa-check"></i><b>6</b> Exam</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R Programming</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduction-to-control-structures" class="section level1">
+<h1><span class="header-section-number">Lesson: 4</span> Introduction to Control Structures</h1>
+<p>This lesson will cover the <code>if-then</code> statement as well as the <code>for</code> loop and <code>while</code> loop. These are two very common control structures for all computer programming languages, and are used extensively in the R Programming Language.</p>
+<div id="if---else-statements" class="section level2">
+<h2><span class="header-section-number">4.1</span> If - else Statements</h2>
+<p>The <code>if-then</code> statement allows us to automate decision points and guide the computer through a data flow diagram. The basic syntax is given below:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if(&lt;condition&gt;) {
+  ## do something
+} else if{
+  ## do something else
+} else {
+  ## do something completely different
+}</code></pre></div>
+<p>The else clause is not always necessary, and many times we just need an if statement:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if(&lt;condition&gt;) {
+  ## do something
+}</code></pre></div>
+<p>The <code>if-else</code> statement is most often used in <em>loops</em> and <em>functions</em>. We’ll illustrate the use of the <code>if-then</code> statement in <em>loops</em> below.</p>
+</div>
+<div id="loops" class="section level2">
+<h2><span class="header-section-number">4.2</span> Loops</h2>
+<p>Loops provide a way to systematically walk down a data structure (usually a vector, data frame, or list) and accomplish a task. The <code>for</code> loop and the <code>while</code> loop will be the primary loops for this class. The <code>for</code> loop is used when we know ahead of time a finite number of iterations that we need to execute (for example, we execute a task for every object in a vector/list or every row in a data frame).</p>
+<p>The <code>for</code> loop below iterates over the values 1, 2, 3, 4, and 5 and prints each of the values.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for(i in <span class="dv">1</span>:<span class="dv">5</span>){
+  <span class="kw">print</span>(i)
+}</code></pre></div>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5</code></pre>
+<p>Notice that we can also use i to access a value in a vector, a row in a data frame, or an object in a list.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>, <span class="st">&quot;e&quot;</span>, <span class="st">&quot;f&quot;</span>)
+
+for(i in <span class="dv">1</span>:<span class="dv">4</span>){
+  <span class="kw">print</span>(letters[i])
+}</code></pre></div>
+<pre><code>## [1] &quot;a&quot;
+## [1] &quot;b&quot;
+## [1] &quot;c&quot;
+## [1] &quot;d&quot;</code></pre>
+<p>You also don’t have to start with 1, or use the letter <em>i</em>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for (year in <span class="dv">2010</span>:<span class="dv">2015</span>){
+  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;The year is&quot;</span>, year))
+}</code></pre></div>
+<pre><code>## [1] &quot;The year is 2010&quot;
+## [1] &quot;The year is 2011&quot;
+## [1] &quot;The year is 2012&quot;
+## [1] &quot;The year is 2013&quot;
+## [1] &quot;The year is 2014&quot;
+## [1] &quot;The year is 2015&quot;</code></pre>
+<p>The <code>next</code> command is often used to skip an iteration if a certain condition is met. The code below illustrates how to use the <code>next</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for(i in <span class="dv">1</span>:<span class="dv">5</span>){
+  if(letters[i]==<span class="st">&quot;c&quot;</span>){
+    next
+  }
+  <span class="kw">print</span>(letters[i])
+}</code></pre></div>
+<pre><code>## [1] &quot;a&quot;
+## [1] &quot;b&quot;
+## [1] &quot;d&quot;
+## [1] &quot;e&quot;</code></pre>
+<p>Loops can also be nested inside of each other. This is useful when working with multiple dimensions (like matrices) or subsets of subsets (for example, the outer <code>for</code> loop iterates over countries, the inner <code>for</code> loop iterates over each city in a given country. An example of a nested <code>for</code> loop is given below, creating a multiplication table:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># nested for: multiplication table</span>
+mymat =<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">nrow=</span><span class="dv">10</span>, <span class="dt">ncol=</span><span class="dv">10</span>) <span class="co"># create a 30 x 30 matrix (of 30 rows and 30 columns)</span>
+
+for(i in <span class="dv">1</span>:<span class="kw">nrow</span>(mymat)) {  <span class="co"># for each row</span>
+  for(j in <span class="dv">1</span>:<span class="kw">ncol</span>(mymat)){ <span class="co"># for each column</span>
+    mymat[i,j] =<span class="st"> </span>i*j     <span class="co"># assign values based on position: product of two indexes</span>
+  }
+}
+
+mymat</code></pre></div>
+<pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+##  [1,]    1    2    3    4    5    6    7    8    9    10
+##  [2,]    2    4    6    8   10   12   14   16   18    20
+##  [3,]    3    6    9   12   15   18   21   24   27    30
+##  [4,]    4    8   12   16   20   24   28   32   36    40
+##  [5,]    5   10   15   20   25   30   35   40   45    50
+##  [6,]    6   12   18   24   30   36   42   48   54    60
+##  [7,]    7   14   21   28   35   42   49   56   63    70
+##  [8,]    8   16   24   32   40   48   56   64   72    80
+##  [9,]    9   18   27   36   45   54   63   72   81    90
+## [10,]   10   20   30   40   50   60   70   80   90   100</code></pre>
+<p>The <code>while</code> loop is used when we don’t know how many iterations we need to go through, but we know the condition that needs to be met before we are done.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">i &lt;-<span class="st"> </span><span class="dv">5</span>
+while(i &lt;=<span class="st"> </span><span class="dv">25</span>) {
+  <span class="kw">print</span>(i)
+  i &lt;-<span class="st"> </span>i +<span class="st"> </span><span class="dv">5</span>
+}</code></pre></div>
+<pre><code>## [1] 5
+## [1] 10
+## [1] 15
+## [1] 20
+## [1] 25</code></pre>
+<p>To finish out this lesson, we’ll provide an example below of a some more sophisticated code. This function simulates a round of play in the board game <em>RISK</em>. In the board game <em>RISK</em>, and attacker begins an assault against a defender, and the win/loss is adjudicated as both players begin rolling dice and comparing values. The simulation below plays through this entire series, declares whether the attacker or the defender won, and declares the number of armies left on the board for each player. Instead of doing this once, this code plays through this 10,000 times, and in the process calculates the probability of the <em>attacher</em> winning. This type of process is known as Monte Carlo Simulation. While you may not fully understand all aspects of this code, note throughout this function how important <em>loops</em> and <code>if-else</code> statements are:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">risk &lt;-<span class="st"> </span>function(attacker, defender, <span class="dt">n=</span><span class="dv">10000</span>) {
+  results &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, n)
+for(j in <span class="dv">1</span>:n){
+while(attacker &gt;<span class="st"> </span><span class="dv">1</span> &amp;<span class="st"> </span>defender &gt;<span class="st"> </span><span class="dv">0</span>) {
+ atk.dice &lt;-<span class="st"> </span><span class="kw">min</span>(attacker<span class="dv">-1</span>, <span class="dv">3</span>)
+ def.dice &lt;-<span class="st"> </span><span class="kw">min</span>(defender, <span class="dv">2</span>)
+ atk.roll &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="kw">runif</span>(atk.dice)*<span class="dv">6</span>)
+ def.roll &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="kw">runif</span>(def.dice)*<span class="dv">6</span>)
+ atk.roll &lt;-<span class="st"> </span>atk.roll[<span class="kw">order</span>(atk.roll,<span class="dt">decreasing=</span>T)]
+ def.roll &lt;-<span class="st"> </span>def.roll[<span class="kw">order</span>(def.roll,<span class="dt">decreasing=</span>T)]
+ comparison &lt;-<span class="st"> </span><span class="kw">min</span>(atk.dice, def.dice)
+ for (i in <span class="dv">1</span>:comparison) {
+  if (atk.roll[i] &gt;<span class="st"> </span>def.roll[i]) defender &lt;-<span class="st"> </span>defender<span class="dv">-1</span>
+  if (atk.roll[i] &lt;=<span class="st"> </span>def.roll[i]) attacker &lt;-<span class="st"> </span>attacker<span class="dv">-1</span>
+ }
+}
+if (defender==<span class="dv">0</span>) results[j] &lt;-<span class="st"> &quot;Attacker&quot;</span>
+if (defender&gt;<span class="dv">0</span>) results[j] &lt;-<span class="st"> &quot;Defender&quot;</span>
+}
+
+<span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;The Probability of the Attacker winning is: &quot;</span>,<span class="kw">length</span>(results[results==<span class="st">&quot;Attacker&quot;</span>])/n))
+}</code></pre></div>
+<p>Now will illustrate how this function is used:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">risk</span>(<span class="dt">attacker=</span><span class="dv">12</span>,<span class="dt">defender=</span><span class="dv">6</span>)</code></pre></div>
+<pre><code>## [1] &quot;The Probability of the Attacker winning is:  1&quot;</code></pre>
+</div>
+<div id="practice-problem-3" class="section level2">
+<h2><span class="header-section-number">4.3</span> Practice Problem</h2>
+<p>Use the instructions below to determine and visualize the average rating by movie genres</p>
+<ul>
+<li>Read the Movie Ratings Data into R</li>
+<li>Use the code below to build a vector called <code>genres</code> that contains all unique genre names contained in the data set.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(stringr)
+genres &lt;-<span class="st"> </span><span class="kw">unique</span>(<span class="kw">unlist</span>(<span class="kw">str_split</span>(rating$genres,<span class="st">&quot;</span><span class="ch">\\</span><span class="st">|&quot;</span>)))</code></pre></div>
+<ul>
+<li>Create a vector object that is the same length as genres to contain the <code>mean</code> ratings</li>
+<li>Iterate over your original data set in a <code>for</code> loop, use the <code>grep</code> command to extract the subset that is related to a specific genre, and calculate the mean rating for that genre</li>
+<li>Create a barplot visualization of average ratings by genre</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="basic-visualization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introduction-to-dates-in-r.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-control.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

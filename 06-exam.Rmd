@@ -1,5 +1,5 @@
 # Exam
 
-The final exam is a 20 question online test to evaluate your understanding of fundamental R principles.  This exam is found at [http://ec2-34-200-213-225.compute-1.amazonaws.com/shiny/rstudio/exam](http://ec2-34-200-213-225.compute-1.amazonaws.com/shiny/rstudio/exam).
+The final exam is a 20 question online test to evaluate your understanding of fundamental R principles.  This exam is found at [http:data-analytics.net/Apps/exam](http:data-analytics.net/Apps/exam).
 
-You must attain a 70% on this exam.
+You must attain a 70% on this exam (You will have five attempts to attain 70%).  

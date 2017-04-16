@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Introduction to R Programming</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="This is an introduction to R Programming, and will be used as the pre-requisite for several data science courses">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Introduction to R Programming" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is an introduction to R Programming, and will be used as the pre-requisite for several data science courses" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Introduction to R Programming" />
+  
+  <meta name="twitter:description" content="This is an introduction to R Programming, and will be used as the pre-requisite for several data science courses" />
+  
+
+<meta name="author" content="DSCOE Team">
+
+
+<meta name="date" content="2017-04-16">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+
+<link rel="next" href="basic-data-manipulation.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Intro to R Programming</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Basic Data Structures</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#the-r-programming-language"><i class="fa fa-check"></i><b>1.1</b> The R Programming Language</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#r-or-python"><i class="fa fa-check"></i><b>1.1.1</b> R or Python?</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#installation"><i class="fa fa-check"></i><b>1.2</b> Installation</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#r-environment-and-workspace"><i class="fa fa-check"></i><b>1.3</b> R Environment and Workspace</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#types-and-shape-of-data"><i class="fa fa-check"></i><b>1.4</b> Types and Shape of Data</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#data-types"><i class="fa fa-check"></i><b>1.5</b> Data Types</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#data-structures"><i class="fa fa-check"></i><b>1.6</b> Data Structures</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="index.html"><a href="index.html#vector-data-structure"><i class="fa fa-check"></i><b>1.6.1</b> Vector Data Structure</a></li>
+<li class="chapter" data-level="1.6.2" data-path="index.html"><a href="index.html#data-frame-data-structure"><i class="fa fa-check"></i><b>1.6.2</b> Data Frame Data Structure</a></li>
+<li class="chapter" data-level="1.6.3" data-path="index.html"><a href="index.html#list-data-structure"><i class="fa fa-check"></i><b>1.6.3</b> List Data Structure</a></li>
+<li class="chapter" data-level="1.6.4" data-path="index.html"><a href="index.html#matrix-data-structure"><i class="fa fa-check"></i><b>1.6.4</b> Matrix Data Structure</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#inputoutput-data"><i class="fa fa-check"></i><b>1.7</b> Input/Output Data</a></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#getting-help"><i class="fa fa-check"></i><b>1.8</b> Getting Help</a></li>
+<li class="chapter" data-level="1.9" data-path="index.html"><a href="index.html#practice-problem"><i class="fa fa-check"></i><b>1.9</b> Practice Problem</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html"><i class="fa fa-check"></i><b>2</b> Basic Data Manipulation</a><ul>
+<li class="chapter" data-level="2.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#data"><i class="fa fa-check"></i><b>2.1</b> Data</a></li>
+<li class="chapter" data-level="2.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#cell-level-data-access"><i class="fa fa-check"></i><b>2.2</b> Cell level data access</a></li>
+<li class="chapter" data-level="2.3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#table-command-and-an-example-of-data-cleaning"><i class="fa fa-check"></i><b>2.3</b> <code>Table</code> Command (and an example of data “cleaning”)</a></li>
+<li class="chapter" data-level="2.4" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#filter-or-subset-data"><i class="fa fa-check"></i><b>2.4</b> Filter (or subset) data</a></li>
+<li class="chapter" data-level="2.5" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#using-the-grep-and-aggregate-commands"><i class="fa fa-check"></i><b>2.5</b> Using the grep and aggregate commands</a></li>
+<li class="chapter" data-level="2.6" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#summary"><i class="fa fa-check"></i><b>2.6</b> Summary</a></li>
+<li class="chapter" data-level="2.7" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#practice-problem-1"><i class="fa fa-check"></i><b>2.7</b> Practice Problem</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basic-visualization.html"><a href="basic-visualization.html"><i class="fa fa-check"></i><b>3</b> Basic Visualization</a><ul>
+<li class="chapter" data-level="3.1" data-path="basic-visualization.html"><a href="basic-visualization.html#bar-plot"><i class="fa fa-check"></i><b>3.1</b> Bar Plot</a></li>
+<li class="chapter" data-level="3.2" data-path="basic-visualization.html"><a href="basic-visualization.html#pie-plot"><i class="fa fa-check"></i><b>3.2</b> Pie Plot</a></li>
+<li class="chapter" data-level="3.3" data-path="basic-visualization.html"><a href="basic-visualization.html#histogram-plot"><i class="fa fa-check"></i><b>3.3</b> Histogram Plot</a></li>
+<li class="chapter" data-level="3.4" data-path="basic-visualization.html"><a href="basic-visualization.html#time-series-plot"><i class="fa fa-check"></i><b>3.4</b> Time Series Plot</a></li>
+<li class="chapter" data-level="3.5" data-path="basic-visualization.html"><a href="basic-visualization.html#practice-problem-2"><i class="fa fa-check"></i><b>3.5</b> Practice Problem</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="introduction-to-control-structures.html"><a href="introduction-to-control-structures.html"><i class="fa fa-check"></i><b>4</b> Introduction to Control Structures</a><ul>
+<li class="chapter" data-level="4.1" data-path="introduction-to-control-structures.html"><a href="introduction-to-control-structures.html#if---else-statements"><i class="fa fa-check"></i><b>4.1</b> If - else Statements</a></li>
+<li class="chapter" data-level="4.2" data-path="introduction-to-control-structures.html"><a href="introduction-to-control-structures.html#loops"><i class="fa fa-check"></i><b>4.2</b> Loops</a></li>
+<li class="chapter" data-level="4.3" data-path="introduction-to-control-structures.html"><a href="introduction-to-control-structures.html#practice-problem-3"><i class="fa fa-check"></i><b>4.3</b> Practice Problem</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="introduction-to-dates-in-r.html"><a href="introduction-to-dates-in-r.html"><i class="fa fa-check"></i><b>5</b> Introduction to Dates in R</a><ul>
+<li class="chapter" data-level="5.1" data-path="introduction-to-dates-in-r.html"><a href="introduction-to-dates-in-r.html#dates-with-base-r"><i class="fa fa-check"></i><b>5.1</b> Dates with Base R</a></li>
+<li class="chapter" data-level="5.2" data-path="introduction-to-dates-in-r.html"><a href="introduction-to-dates-in-r.html#dates-with-the-lubridate-package"><i class="fa fa-check"></i><b>5.2</b> Dates with the Lubridate Package</a></li>
+<li class="chapter" data-level="5.3" data-path="introduction-to-dates-in-r.html"><a href="introduction-to-dates-in-r.html#posixct-and-posixlt"><i class="fa fa-check"></i><b>5.3</b> POSIXct and POSIXlt</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="exam.html"><a href="exam.html"><i class="fa fa-check"></i><b>6</b> Exam</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R Programming</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Introduction to R Programming</h1>
+<h4 class="author"><em>DSCOE Team</em></h4>
+<h4 class="date"><em>2017-04-16</em></h4>
+</div>
+<div id="basic-data-structures" class="section level1">
+<h1><span class="header-section-number">Lesson: 1</span> Basic Data Structures</h1>
+
+<div id="the-r-programming-language" class="section level2">
+<h2><span class="header-section-number">1.1</span> The R Programming Language</h2>
+<p>R is an extremely powerful statistical scripting language. It is open-source and used broadly across academia, research organizations, and businesses. It is often the tool of choice for data scientists, data analysts, quantitative financial analysts, and a myriad of other professions. It is used for research at the vast majority of graduate schools. It is currently used by companies like Facebook, Google, the NY Times and Wallstreet financial organizations. Microsoft has invested heavily in integrating R into its desktop and cloud data science tools. Google has written the R Style Guide that is widely used. Facebook data scientists use R to analyze and understand the vast Facebook social network.</p>
+<div class="figure">
+<img src="facebook.png" alt="Figure 1: Facebook created this image with R to show how Facebook connects the world" />
+<p class="caption">Figure 1: Facebook created this image with R to show how Facebook connects the world</p>
+</div>
+<div id="r-or-python" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> R or Python?</h3>
+<p>The world is quickly moving toward leveraging open source data science tools rather than proprietary software. Over the last 5 years R and Python have risen as the two primary open source tools used by data professionals. While there is significant overlap in the capabilities of both languages, in general the R Programming language is better at data analysis and visualization, and Python is better at data acquisition and producing code for production environments. We decided to teach R in this class since it generally has better visualizations, allowing our analysts to tell the data narrative. Additionally, R is generally more accessible across the Department of Defense.</p>
+<div class="figure">
+<img src="whyR2.PNG" alt="Figure 2: LAVASTORM 2014 Survey of Industry: Primary tools used by data scientists" />
+<p class="caption">Figure 2: LAVASTORM 2014 Survey of Industry: Primary tools used by data scientists</p>
+</div>
+<p>R is open-source and is freely available to download. You can use base R as-is to write and run R scripts. That being said, RStudio has provided a very useful Integrated Development Environment (IDE) or “front-end” for R that is generally easier to use (R is still the “engine”; you can’t run RStudio without R). We will primarily use RStudio in this course.</p>
+<p>Note that you can also run R from a server in the “cloud”. The Army Data Science Center of Education (DSCOE) provides several tutorials that explain how to do this.</p>
+<hr />
+</div>
+</div>
+<div id="installation" class="section level2">
+<h2><span class="header-section-number">1.2</span> Installation</h2>
+<ol style="list-style-type: decimal">
+<li>Install Base R by going to <a href="http://cran.r-project.org/bin/windows/base/" class="uri">http://cran.r-project.org/bin/windows/base/</a></li>
+<li>Install RStudio by going to <a href="http://www.rstudio.com/products/rstudio/download/" class="uri">http://www.rstudio.com/products/rstudio/download/</a></li>
+</ol>
+</div>
+<div id="r-environment-and-workspace" class="section level2">
+<h2><span class="header-section-number">1.3</span> R Environment and Workspace</h2>
+<p>Introductory Video:</p>
+<iframe width="800" height="500" src="https://www.youtube.com/embed/46X1-Q0oQMA" frameborder="0" allowfullscreen>
+</iframe>
+<!-- [![Alt text](https://img.youtube.com/vi/VID/0.jpg)](https://www.youtube.com/watch?v=MGDKfUIgtKk) -->
+<p>R is always pointing to a specific directory (or folder) on your computer. This is called your <em>working directory</em>. R will always directly read files and write files to this directory. You can see your working directory by typing</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getwd</span>()</code></pre></div>
+<pre><code>## [1] &quot;/home/dmbeskow/Dropbox/prerequisite-book&quot;</code></pre>
+<p>If you want to change where your working directory is, you can do this three ways. If you are using RStudio, you can go to <em>Session -&gt; Set Working Directory</em>. You can also use the <em>Files</em> tab to navigate to your desired working directory, and then click on <em>More -&gt; Set as Working Directory</em>. If you want to change your <em>working directory</em> using a command (especially if you’re using base R), then you can type</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setwd</span>(<span class="st">&quot;C:/Users/beskow/Documents&quot;</span>)  ###Make sure you use Forward Slashes in Windows</code></pre></div>
+<p>If you want to see the names of files in your working directory without opening Windows Explorer, you can use the command</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dir</span>()</code></pre></div>
+<pre><code>##  [1] &quot;01-fundamentals.Rmd&quot;     &quot;02-munging.Rmd&quot;         
+##  [3] &quot;03-visualization.Rmd&quot;    &quot;04-control.Rmd&quot;         
+##  [5] &quot;05-dates.Rmd&quot;            &quot;06-exam.Rmd&quot;            
+##  [7] &quot;07-references.Rmd&quot;       &quot;_book&quot;                  
+##  [9] &quot;book.bib&quot;                &quot;bookdown-demo.Rmd&quot;      
+## [11] &quot;bookdown-demo.Rproj&quot;     &quot;_bookdown.yml&quot;          
+## [13] &quot;_build.sh&quot;               &quot;dataframe.PNG&quot;          
+## [15] &quot;dataWrangling.jpg&quot;       &quot;_deploy.sh&quot;             
+## [17] &quot;DESCRIPTION&quot;             &quot;dplyr.png&quot;              
+## [19] &quot;environment.PNG&quot;         &quot;facebook.png&quot;           
+## [21] &quot;filterColumn.PNG&quot;        &quot;filterRow.PNG&quot;          
+## [23] &quot;index.Rmd&quot;               &quot;KoreanConflict.csv&quot;     
+## [25] &quot;LICENSE&quot;                 &quot;list.PNG&quot;               
+## [27] &quot;matrix.PNG&quot;              &quot;_output.yml&quot;            
+## [29] &quot;packages.bib&quot;            &quot;preamble.tex&quot;           
+## [31] &quot;prerequisite-book.Rproj&quot; &quot;rating2.csv&quot;            
+## [33] &quot;README.md&quot;               &quot;screen1.png&quot;            
+## [35] &quot;style.css&quot;               &quot;summer.csv&quot;             
+## [37] &quot;tidyr.png&quot;               &quot;toc.css&quot;                
+## [39] &quot;vector.PNG&quot;              &quot;whyR2.PNG&quot;              
+## [41] &quot;whyR.PNG&quot;</code></pre>
+<p>Note that this gives the names of the files in your working directory, which saves you the time of opening up Windows Explorer to remind yourself what you named your data file.</p>
+</div>
+<div id="types-and-shape-of-data" class="section level2">
+<h2><span class="header-section-number">1.4</span> Types and Shape of Data</h2>
+<p>Before we get into data, I first want to show you that your command line can operate like a calculator</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span> +<span class="st"> </span><span class="dv">4</span> +<span class="st"> </span><span class="dv">7</span> *<span class="st"> </span><span class="dv">7</span></code></pre></div>
+<pre><code>## [1] 58</code></pre>
+<p>or</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pi *<span class="st"> </span><span class="fl">7.2</span>^<span class="dv">2</span></code></pre></div>
+<pre><code>## [1] 162.8602</code></pre>
+<p>Note that in both of these examples, the answer is printed to the screen, but not stored in memory. In other words, I cannot access that answer without redoing the calculation. If I want to store it in memory, then I assign the answer to a name. We use the symbol &lt;- to mean “assign”. In other words, the result of the computation on the right of the symbol is assigned to the name on the left of the symbol. For example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">4</span>*<span class="dv">4</span></code></pre></div>
+<p>I have now assigned the result of my computation to the name <em>x</em>. If I want to see this value of <em>x</em> in the future, I can just type it in the console.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x</code></pre></div>
+<pre><code>## [1] 16</code></pre>
+<p>Note that in <em>RStudio</em> you can also see your variable in the <em>Environment</em> window.</p>
+<p>I can also use it in future computations:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y&lt;-x/<span class="dv">2</span></code></pre></div>
+<p><em>x</em> is now stored in your <em>Global Environment</em>. Think of this as your “workbench” that contains all of the data and values that you are working on. In RStudio, you can usually see what is in your <em>Global Environment</em> in the top right part of the RStudio window.</p>
+<div class="figure">
+<img src="environment.PNG" alt="Figure 3: The Environment window shows the name and type of data held in memory" />
+<p class="caption">Figure 3: The “Environment” window shows the name and type of data held in memory</p>
+</div>
+<p>If you’re using base R, you can list the variables that are in your <em>Global Environment</em> by typing</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ls</span>()</code></pre></div>
+<pre><code>## [1] &quot;x&quot; &quot;y&quot;</code></pre>
+<p>When you close either RStudio or base R, it will ask you if you want to save your <em>work space</em>. It is essentially asking you if you want to save what is on your workbench. If you choose “yes”, then it will save an *.RData file of everything that is in your workspace in your working directory. If you restart R from this working directory, it will load all of these items into your workspace. Generally it is not a good idea to save your workspace as long as you have all of the code it would take to quickly recreate all of the items in your workspace. However, if you have some code that takes along time to run, then it is best to save these items in a workspace so that you don’t have to wait hours/days a second time to recreate them. For example, I created some R code to “clean” operational combat data. It took approximately 11 days to clean the data. In this case, I would want to save my results so I don’t have to wait 11 days again for this to run. In general, however, R takes seconds to run, and it is best to not save your workspace as long as you have clean and easy to run code.</p>
+</div>
+<div id="data-types" class="section level2">
+<h2><span class="header-section-number">1.5</span> Data Types</h2>
+<p>Now that we have R and RStudio installed, let’s look at different classes of data. The basic building blocks are <em>integer</em>, <em>numeric</em>, <em>character</em>, <em>date</em>, <em>boolean</em> (logical) or <em>factor</em> classes of data. The first four should be self explanatory, and examples of all four are below:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x&lt;-<span class="dv">4</span>                   <span class="co">#integer</span>
+x&lt;-<span class="fl">4.56</span>                <span class="co">#numeric</span>
+x&lt;-<span class="ot">TRUE</span>                <span class="co">#boolean</span>
+x&lt;-<span class="st">&quot;Rangers Lead the Way!&quot;</span>  <span class="co">#character</span></code></pre></div>
+<p>Use the class command to find out what type of data you have. Note that because we were using <em>x</em> for all three, that we were writing over the value of x. At the end of running these four lines of code, <em>x</em> would equal the last line of code: the character string “Rangers Lead the Way!”</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(x)</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>R does not automatically recognize <em>date</em> data. When you read <em>date</em> data into R, it is initially converted to <em>character</em> data. If you want R to recognize it as a <em>date</em>, you need to explicity change it (we will go over this in more detail later):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x&lt;-<span class="st">&quot;2014-01-01&quot;</span>
+x&lt;-<span class="kw">as.Date</span>(x)
+<span class="kw">class</span>(x)</code></pre></div>
+<pre><code>## [1] &quot;Date&quot;</code></pre>
+<p>There is also a type of data called <em>factor</em> data. This is categorical data (often a character string) that has a numeric value tied to it for certain types of models. Character data is often coerced to the <em>factor</em> class when you have nominal data (for example, a <em>gender</em> field that contained the strings “male” and “female”). If I change this into a factor, it will still be represented as “male” and “female”, but it will also be represented numerically (as a 1 and 2). You need to be very careful when using factors, since many of the functions in R can’t handle factor data. You can see the use of factor data below:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y&lt;-<span class="kw">c</span>(<span class="st">&quot;male&quot;</span>,<span class="st">&quot;male&quot;</span>,<span class="st">&quot;female&quot;</span>,<span class="st">&quot;male&quot;</span>,<span class="st">&quot;female&quot;</span>)</code></pre></div>
+<p>This is character data. If I tried to plot y right now, R would show an error, since you can’t print <em>character</em> data. Lets convert this to a factor now:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y&lt;-<span class="kw">as.factor</span>(y)
+y</code></pre></div>
+<pre><code>## [1] male   male   female male   female
+## Levels: female male</code></pre>
+<p>Now watch when I try to plot this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(y)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p>It plots a barchart because R recognizes this as a factor and has a numeric value associated with both of the “levels” in the factor</p>
+</div>
+<div id="data-structures" class="section level2">
+<h2><span class="header-section-number">1.6</span> Data Structures</h2>
+<p>The data that we showed above is trivial (and very small) data. To work with data, we’d prefer to have it organized into a usable data structure. In this section we will introduce you to the four primary data structures that we will use:</p>
+<table style="width:44%;">
+<colgroup>
+<col width="19%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Data Structure</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Vector</td>
+<td>Data in one dimension</td>
+</tr>
+<tr class="even">
+<td>Data Frame</td>
+<td>Two dimensional data (most commonly used data structure)</td>
+</tr>
+<tr class="odd">
+<td>List</td>
+<td>A one dimensional data structure that can contain any class of data (objects could be other data structures)</td>
+</tr>
+<tr class="even">
+<td>Matrix</td>
+<td>Multi-dimensional data of the same class</td>
+</tr>
+</tbody>
+</table>
+<p>There are also different dimensions of data. So far we’ve been using <em>scalars</em>, in which our variable x is a single value. Data can have 1, 2, or many dimensions, however.</p>
+<div id="vector-data-structure" class="section level3">
+<h3><span class="header-section-number">1.6.1</span> Vector Data Structure</h3>
+<p>One dimensional data that is of the same class is often organized into a <em>vector</em>. All objects in a vector must be of the same class (or will be coerced to the same class). A picture of a vector is given below</p>
+<div class="figure">
+<img src="vector.PNG" alt="Figure 4: Understanding Vector Data in R" />
+<p class="caption">Figure 4: Understanding Vector Data in R</p>
+</div>
+<p>An example of a vector in R is given below:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x&lt;-<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">9</span>,<span class="dv">8</span>,<span class="dv">2</span>)    ## &quot;c&quot; means combine the values into a vector</code></pre></div>
+<p>If you need to create a vector of sequential integers, you can use a colon:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x&lt;-<span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">10</span>)
+x</code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p>If you need to create a vector of the same number, you can use the repeat command:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">10</span>)  <span class="co"># Repeat 1 ten times</span></code></pre></div>
+<pre><code>##  [1] 1 1 1 1 1 1 1 1 1 1</code></pre>
+</div>
+<div id="data-frame-data-structure" class="section level3">
+<h3><span class="header-section-number">1.6.2</span> Data Frame Data Structure</h3>
+<p>Anyone who has used Microsoft Excel is used to seeing data in the traditional two dimensional table. The data frame structures data in this way. A picture of a data frame is provided below:</p>
+<div class="figure">
+<img src="dataframe.PNG" alt="Figure 5: Understanding Data Frame Structure in R" />
+<p class="caption">Figure 5: Understanding Data Frame Structure in R</p>
+</div>
+<p>Each column of a data frame is a vector, and must have the same class of data. A data frame is a list of vectors where each each vector has the same length. A data frame is usually created when you read data from an external file (usually a CSV file), but you can create one manually, as seen below:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">##Create a data frame
+apft &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Name =</span> <span class="kw">c</span>(<span class="st">&quot;John&quot;</span>,<span class="st">&quot;Laura&quot;</span>,<span class="st">&quot;Jim&quot;</span>),
+                   <span class="dt">Gender =</span> <span class="kw">c</span>(<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>),
+                   <span class="dt">PU =</span> <span class="kw">c</span>(<span class="dv">70</span>, <span class="dv">52</span>, <span class="dv">49</span>),
+                   <span class="dt">SU =</span> <span class="kw">c</span>(<span class="dv">90</span>, <span class="dv">85</span>, <span class="dv">60</span>),
+                   <span class="dt">Run =</span> <span class="kw">c</span>(<span class="st">&quot;14:28&quot;</span>,<span class="st">&quot;13:30&quot;</span>,<span class="st">&quot;12:36&quot;</span>))
+
+##Print object
+apft</code></pre></div>
+<pre><code>##    Name Gender PU SU   Run
+## 1  John      M 70 90 14:28
+## 2 Laura      F 52 85 13:30
+## 3   Jim      M 49 60 12:36</code></pre>
+</div>
+<div id="list-data-structure" class="section level3">
+<h3><span class="header-section-number">1.6.3</span> List Data Structure</h3>
+<p>A list is a linear container for objects of any class or data structure. Each object in list is separate and distinct.</p>
+<p>A list is helpful in several situations. For example, there are many time you have vectors that do not all have the same length. For example, lets say we extracted hash-tags from Tweets at the Rio Olympics. The number of hash-tags per tweet can range from zero to seven or eight (see Figure 6 below). You can’t store these vectors in a data frame because they aren’t the same length. A list is the appropriate object to store these vectors in.</p>
+<div class="figure">
+<img src="list.PNG" alt="Figure 6: Understanding List Data Structure in R" />
+<p class="caption">Figure 6: Understanding List Data Structure in R</p>
+</div>
+<p>A list is also helpful for storing different types of data in a single object. For example, we can store a scalar, a data frame, and a vector in a single list:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">##Store a scalar, vector, and data frame in a list
+myList &lt;-<span class="st"> </span><span class="kw">list</span>(y, x, apft)
+
+##Print object
+myList</code></pre></div>
+<pre><code>## [[1]]
+## [1] male   male   female male   female
+## Levels: female male
+## 
+## [[2]]
+##  [1]  1  2  3  4  5  6  7  8  9 10
+## 
+## [[3]]
+##    Name Gender PU SU   Run
+## 1  John      M 70 90 14:28
+## 2 Laura      F 52 85 13:30
+## 3   Jim      M 49 60 12:36</code></pre>
+<p>Lists also create a great container for reading multiple data files into R and combining them into a single data frame. We will teach this technique later.</p>
+</div>
+<div id="matrix-data-structure" class="section level3">
+<h3><span class="header-section-number">1.6.4</span> Matrix Data Structure</h3>
+<p>While an important data structure in R, we will not use the matrix structure often in this course. A matrix is a multi-dimensional array of numeric, boolean, or integer data (NOT character, date, or factor data).</p>
+<div class="figure">
+<img src="matrix.PNG" alt="Figure 7: Understanding Matrix Data Structure in R" />
+<p class="caption">Figure 7: Understanding Matrix Data Structure in R</p>
+</div>
+<p>Below is an example of creating a matrix object in R:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Example of setting row and column names
+mdat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>, <span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>), <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">3</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>)
+
+##Print object
+mdat</code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]   11   12   13</code></pre>
+<p>As mentioned above, we will not use matrices much in this course.</p>
+</div>
+</div>
+<div id="inputoutput-data" class="section level2">
+<h2><span class="header-section-number">1.7</span> Input/Output Data</h2>
+<p>Now that we have all of that done, let’s learn how to read and write data. To do this with some fun data, let’s read in some data on movie ratings. This data contains users that rated movies in 2015. Each record (or row) represents a single user rating a single movie. Movies can have more than one rating, and users can rate more than one movie. Make sure you download the data at <a href="https://s3.amazonaws.com/dscoe-data/rating2.csv" class="uri">https://s3.amazonaws.com/dscoe-data/rating2.csv</a> and follow along with this tutorial.</p>
+<p>Note: if you’re using a cloud environment, you can download the data by running the following command:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">download.file</span>(<span class="st">&quot;https://s3.amazonaws.com/dscoe-data/rating2.csv&quot;</span>, <span class="dt">destfile =</span> <span class="st">&quot;rating2.csv&quot;</span>)</code></pre></div>
+<p>We use the command <em>read.csv</em> to read in data. We also make sure to assign this to an object name (in this case, the object name is <code>rating</code>)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rating &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;rating2.csv&quot;</span>, <span class="dt">as.is =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>The <code>as.is = TRUE</code> parameter ensures that any character data is formatted into a <em>character</em> vector rather than a <em>factor</em> vector. As a personal preference, I always explicitly convert to the <em>factor</em> data type when necessary so that I don’t have any undesired consequences.</p>
+<p>Now that we’ve read the file in, we’ll explore this data object a little bit. Below is the top commands that I use to explore a data object.</p>
+<p>One of the most powerful commands to explore any object is the structure command <code>str</code>. This command gives the overall size of the object (in this case it has 283,886 rows and 7 columns), as well as the class of each column vector and the first few observations from each column vector.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">##The structure command prints the structure of the data object
+<span class="kw">str</span>(rating)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    283886 obs. of  7 variables:
+##  $ userId   : int  31 31 31 31 31 31 31 31 31 31 ...
+##  $ movieId  : int  1 110 260 364 527 588 594 616 1196 1197 ...
+##  $ rating   : num  3 5 5 3 0.5 3 2.5 4 5 3 ...
+##  $ timestamp: chr  &quot;2015-02-23 23:18:07&quot; &quot;2015-02-23 23:17:53&quot; &quot;2015-02-23 23:17:13&quot; &quot;2015-02-25 06:13:27&quot; ...
+##  $ year     : int  2015 2015 2015 2015 2015 2015 2015 2015 2015 2015 ...
+##  $ title    : chr  &quot;Toy Story (1995)&quot; &quot;Braveheart (1995)&quot; &quot;Star Wars: Episode IV - A New Hope (1977)&quot; &quot;Lion King, The (1994)&quot; ...
+##  $ genres   : chr  &quot;Adventure|Animation|Children|Comedy|Fantasy&quot; &quot;Action|Drama|War&quot; &quot;Action|Adventure|Sci-Fi&quot; &quot;Adventure|Animation|Children|Drama|Musical|IMAX&quot; ...</code></pre>
+<p>Related to the <code>str</code> command is the <code>summary</code> command. This command is especially helpful if you have numeric data in the object and you want to view some of the basic statistics regarding this data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">##The summary command prints summary statistics about an object in memory
+<span class="kw">summary</span>(rating)</code></pre></div>
+<pre><code>##      userId          movieId           rating     timestamp        
+##  Min.   :    31   Min.   :     1   Min.   :0.5   Length:283886     
+##  1st Qu.: 34847   1st Qu.:  2712   1st Qu.:3.0   Class :character  
+##  Median : 69852   Median :  8644   Median :3.5   Mode  :character  
+##  Mean   : 69325   Mean   : 39896   Mean   :3.5                     
+##  3rd Qu.:104000   3rd Qu.: 79132   3rd Qu.:4.0                     
+##  Max.   :138414   Max.   :131262   Max.   :5.0                     
+##       year         title              genres         
+##  Min.   :2015   Length:283886      Length:283886     
+##  1st Qu.:2015   Class :character   Class :character  
+##  Median :2015   Mode  :character   Mode  :character  
+##  Mean   :2015                                        
+##  3rd Qu.:2015                                        
+##  Max.   :2015</code></pre>
+<p>I usually also use the command <code>head</code> to print the first 5 rows. This gives titles of the variables (columns) as well as a feel for the data:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">##The head command prints the first five rows of the data set
+<span class="kw">head</span>(rating)</code></pre></div>
+<pre><code>##   userId movieId rating           timestamp year
+## 1     31       1    3.0 2015-02-23 23:18:07 2015
+## 2     31     110    5.0 2015-02-23 23:17:53 2015
+## 3     31     260    5.0 2015-02-23 23:17:13 2015
+## 4     31     364    3.0 2015-02-25 06:13:27 2015
+## 5     31     527    0.5 2015-02-23 23:19:58 2015
+## 6     31     588    3.0 2015-02-25 05:41:09 2015
+##                                       title
+## 1                          Toy Story (1995)
+## 2                         Braveheart (1995)
+## 3 Star Wars: Episode IV - A New Hope (1977)
+## 4                     Lion King, The (1994)
+## 5                   Schindler&#39;s List (1993)
+## 6                            Aladdin (1992)
+##                                            genres
+## 1     Adventure|Animation|Children|Comedy|Fantasy
+## 2                                Action|Drama|War
+## 3                         Action|Adventure|Sci-Fi
+## 4 Adventure|Animation|Children|Drama|Musical|IMAX
+## 5                                       Drama|War
+## 6     Adventure|Animation|Children|Comedy|Musical</code></pre>
+<p>If you only want to print the names of the columns, use the <code>names</code> command:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">##The names command just prints the column names of a data frame
+<span class="kw">names</span>(rating)</code></pre></div>
+<pre><code>## [1] &quot;userId&quot;    &quot;movieId&quot;   &quot;rating&quot;    &quot;timestamp&quot; &quot;year&quot;      &quot;title&quot;    
+## [7] &quot;genres&quot;</code></pre>
+<p>Finally, if we only want the dimensions of the data, we can use <code>dim</code> to get all of the dimensions, <code>*nrow</code> to access the number of rows, and <code>ncol</code> to access the number of columns:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">##The dim command prints the dimensions of the object
+<span class="kw">dim</span>(rating)</code></pre></div>
+<pre><code>## [1] 283886      7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">##The nrow command prints the number of rows of a data frame
+<span class="kw">nrow</span>(rating)</code></pre></div>
+<pre><code>## [1] 283886</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">##The ncol command prints the number of columns of a data frame
+<span class="kw">ncol</span>(rating)</code></pre></div>
+<pre><code>## [1] 7</code></pre>
+</div>
+<div id="getting-help" class="section level2">
+<h2><span class="header-section-number">1.8</span> Getting Help</h2>
+<p>There’s several ways to get help in R. The <code>help</code> function and the <code>?</code> function can access the documentation for packages and functions that you have loaded into R. <code>help.search</code> and the <code>??</code> function both search within documentation for loaded packages. Additionally, you can use the <code>args</code> function to print out the arguments for a function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">##Getting help for the str function
+<span class="kw">help</span>(str)
+
+##or
+?str
+
+##Searching within documentation for &quot;subset&quot;
+<span class="kw">help.search</span>(<span class="st">&#39;subset&#39;</span>)
+
+##or
+??subset</code></pre></div>
+</div>
+<div id="practice-problem" class="section level2">
+<h2><span class="header-section-number">1.9</span> Practice Problem</h2>
+<p>Download the Korean War Casualty Data by downloading the Comma Separated Value (CSV) file here:</p>
+<p><a href="https://s3.amazonaws.com/dscoe-data/KoreanConflict.csv" class="uri">https://s3.amazonaws.com/dscoe-data/KoreanConflict.csv</a></p>
+<p>If you’re using a cloud environment, you can download the data by running the following command:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">download.file</span>(<span class="st">&quot;https://s3.amazonaws.com/dscoe-data/KoreanConflict.csv&quot;</span>, <span class="dt">destfile =</span> <span class="st">&quot;KoreanConflict.csv&quot;</span>)</code></pre></div>
+<p>Read this into your R environment. Explore the data given the commands that we leaned this lessons. We will use this data in future lessons.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="basic-data-manipulation.html" class="navigation navigation-next navigation-unique" aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Introduction to R Programming</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="This is an introduction to R Programming, and will be used as the pre-requisite for several data science courses">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Introduction to R Programming" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is an introduction to R Programming, and will be used as the pre-requisite for several data science courses" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Introduction to R Programming" />
+  
+  <meta name="twitter:description" content="This is an introduction to R Programming, and will be used as the pre-requisite for several data science courses" />
+  
+
+<meta name="author" content="DSCOE Team">
+
+
+<meta name="date" content="2017-04-16">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="basic-visualization.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Intro to R Programming</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Basic Data Structures</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#the-r-programming-language"><i class="fa fa-check"></i><b>1.1</b> The R Programming Language</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#r-or-python"><i class="fa fa-check"></i><b>1.1.1</b> R or Python?</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#installation"><i class="fa fa-check"></i><b>1.2</b> Installation</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#r-environment-and-workspace"><i class="fa fa-check"></i><b>1.3</b> R Environment and Workspace</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#types-and-shape-of-data"><i class="fa fa-check"></i><b>1.4</b> Types and Shape of Data</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#data-types"><i class="fa fa-check"></i><b>1.5</b> Data Types</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#data-structures"><i class="fa fa-check"></i><b>1.6</b> Data Structures</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="index.html"><a href="index.html#vector-data-structure"><i class="fa fa-check"></i><b>1.6.1</b> Vector Data Structure</a></li>
+<li class="chapter" data-level="1.6.2" data-path="index.html"><a href="index.html#data-frame-data-structure"><i class="fa fa-check"></i><b>1.6.2</b> Data Frame Data Structure</a></li>
+<li class="chapter" data-level="1.6.3" data-path="index.html"><a href="index.html#list-data-structure"><i class="fa fa-check"></i><b>1.6.3</b> List Data Structure</a></li>
+<li class="chapter" data-level="1.6.4" data-path="index.html"><a href="index.html#matrix-data-structure"><i class="fa fa-check"></i><b>1.6.4</b> Matrix Data Structure</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#inputoutput-data"><i class="fa fa-check"></i><b>1.7</b> Input/Output Data</a></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#getting-help"><i class="fa fa-check"></i><b>1.8</b> Getting Help</a></li>
+<li class="chapter" data-level="1.9" data-path="index.html"><a href="index.html#practice-problem"><i class="fa fa-check"></i><b>1.9</b> Practice Problem</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html"><i class="fa fa-check"></i><b>2</b> Basic Data Manipulation</a><ul>
+<li class="chapter" data-level="2.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#data"><i class="fa fa-check"></i><b>2.1</b> Data</a></li>
+<li class="chapter" data-level="2.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#cell-level-data-access"><i class="fa fa-check"></i><b>2.2</b> Cell level data access</a></li>
+<li class="chapter" data-level="2.3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#table-command-and-an-example-of-data-cleaning"><i class="fa fa-check"></i><b>2.3</b> <code>Table</code> Command (and an example of data “cleaning”)</a></li>
+<li class="chapter" data-level="2.4" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#filter-or-subset-data"><i class="fa fa-check"></i><b>2.4</b> Filter (or subset) data</a></li>
+<li class="chapter" data-level="2.5" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#using-the-grep-and-aggregate-commands"><i class="fa fa-check"></i><b>2.5</b> Using the grep and aggregate commands</a></li>
+<li class="chapter" data-level="2.6" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#summary"><i class="fa fa-check"></i><b>2.6</b> Summary</a></li>
+<li class="chapter" data-level="2.7" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#practice-problem-1"><i class="fa fa-check"></i><b>2.7</b> Practice Problem</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basic-visualization.html"><a href="basic-visualization.html"><i class="fa fa-check"></i><b>3</b> Basic Visualization</a><ul>
+<li class="chapter" data-level="3.1" data-path="basic-visualization.html"><a href="basic-visualization.html#bar-plot"><i class="fa fa-check"></i><b>3.1</b> Bar Plot</a></li>
+<li class="chapter" data-level="3.2" data-path="basic-visualization.html"><a href="basic-visualization.html#pie-plot"><i class="fa fa-check"></i><b>3.2</b> Pie Plot</a></li>
+<li class="chapter" data-level="3.3" data-path="basic-visualization.html"><a href="basic-visualization.html#histogram-plot"><i class="fa fa-check"></i><b>3.3</b> Histogram Plot</a></li>
+<li class="chapter" data-level="3.4" data-path="basic-visualization.html"><a href="basic-visualization.html#time-series-plot"><i class="fa fa-check"></i><b>3.4</b> Time Series Plot</a></li>
+<li class="chapter" data-level="3.5" data-path="basic-visualization.html"><a href="basic-visualization.html#practice-problem-2"><i class="fa fa-check"></i><b>3.5</b> Practice Problem</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="introduction-to-control-structures.html"><a href="introduction-to-control-structures.html"><i class="fa fa-check"></i><b>4</b> Introduction to Control Structures</a><ul>
+<li class="chapter" data-level="4.1" data-path="introduction-to-control-structures.html"><a href="introduction-to-control-structures.html#if---else-statements"><i class="fa fa-check"></i><b>4.1</b> If - else Statements</a></li>
+<li class="chapter" data-level="4.2" data-path="introduction-to-control-structures.html"><a href="introduction-to-control-structures.html#loops"><i class="fa fa-check"></i><b>4.2</b> Loops</a></li>
+<li class="chapter" data-level="4.3" data-path="introduction-to-control-structures.html"><a href="introduction-to-control-structures.html#practice-problem-3"><i class="fa fa-check"></i><b>4.3</b> Practice Problem</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="introduction-to-dates-in-r.html"><a href="introduction-to-dates-in-r.html"><i class="fa fa-check"></i><b>5</b> Introduction to Dates in R</a><ul>
+<li class="chapter" data-level="5.1" data-path="introduction-to-dates-in-r.html"><a href="introduction-to-dates-in-r.html#dates-with-base-r"><i class="fa fa-check"></i><b>5.1</b> Dates with Base R</a></li>
+<li class="chapter" data-level="5.2" data-path="introduction-to-dates-in-r.html"><a href="introduction-to-dates-in-r.html#dates-with-the-lubridate-package"><i class="fa fa-check"></i><b>5.2</b> Dates with the Lubridate Package</a></li>
+<li class="chapter" data-level="5.3" data-path="introduction-to-dates-in-r.html"><a href="introduction-to-dates-in-r.html#posixct-and-posixlt"><i class="fa fa-check"></i><b>5.3</b> POSIXct and POSIXlt</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="exam.html"><a href="exam.html"><i class="fa fa-check"></i><b>6</b> Exam</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R Programming</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="basic-data-manipulation" class="section level1">
+<h1><span class="header-section-number">Lesson: 2</span> Basic Data Manipulation</h1>
+<p>The most time intensive task in data science endeavors is pre-processing data. Real world data is often complex and messy. Data processing (sometimes called “munging” or “data wrangling”) cleans and manipulates data so that it is in a form that is useful for models and visualizations. The R programming language is one of the best tools for manipulating data. This lesson will discuss the basics of data structure as well as ways to subset, extract and otherwise manipulate basic data.</p>
+<div class="figure">
+<img src="dataWrangling.jpg" alt="Figure 1: Data Wrangling&quot; is often the most difficult part of data science" />
+<p class="caption">Figure 1: “Data Wrangling”&quot; is often the most difficult part of data science</p>
+</div>
+<div id="data" class="section level2">
+<h2><span class="header-section-number">2.1</span> Data</h2>
+<p>For this lesson we will use casualty data from the Korean War. This data is available at <a href="https://www.kaggle.com/datasets">Kaggle</a>. You should have downloaded this data for the practice problem in Lesson 1. First, let’s read the data into R:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">kor &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;KoreanConflict.csv&quot;</span>, <span class="dt">as.is =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>Now let’s explore the data with some of the tools we learned in Lesson 1. First, let’s look at the structure of the data:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(kor)  ## Print the structure of the Korean Casualty Data</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    36574 obs. of  25 variables:
+##  $ SERVICE_TYPE        : chr  &quot;V&quot; &quot;R&quot; &quot;R&quot; &quot;V&quot; ...
+##  $ SERVICE_CODE        : chr  &quot;L&quot; &quot;K&quot; &quot;K&quot; &quot;L&quot; ...
+##  $ ENROLLMENT          : chr  &quot;ACTIVE - GUARD/RESERVE&quot; &quot;ACTIVE - REGULAR&quot; &quot;ACTIVE - REGULAR&quot; &quot;ACTIVE - GUARD/RESERVE&quot; ...
+##  $ BRANCH              : chr  &quot;AIR FORCE&quot; &quot;ARMY&quot; &quot;ARMY&quot; &quot;ARMY&quot; ...
+##  $ RANK                : chr  &quot;CAPT&quot; &quot;PVT&quot; &quot;PFC&quot; &quot;2LT&quot; ...
+##  $ PAY_GRADE           : chr  &quot;O03&quot; &quot;E02&quot; &quot;E03&quot; &quot;O01&quot; ...
+##  $ POSITION            : chr  &quot;&quot; &quot;FOOD SERVICE APPRENTICE&quot; &quot;HEAVY WEAPONS INFANTRYMAN&quot; &quot;INFANTRY UNIT COMMANDER&quot; ...
+##  $ BIRTH_YEAR          : chr  &quot;1917&quot; &quot;1927&quot; &quot;1932&quot; &quot;1929&quot; ...
+##  $ SEX                 : chr  &quot;M&quot; &quot;M&quot; &quot;M&quot; &quot;M&quot; ...
+##  $ HOME_CITY           : chr  &quot;NEW YORK&quot; &quot;UNKNOWN&quot; &quot;UNKNOWN&quot; &quot;UNKNOWN&quot; ...
+##  $ HOME_COUNTY         : chr  &quot;NEW YORK&quot; &quot;OCONEE&quot; &quot;BIBB&quot; &quot;COAHOMA&quot; ...
+##  $ NATIONALITY         : chr  &quot;US&quot; &quot;US&quot; &quot;US&quot; &quot;US&quot; ...
+##  $ STATE_CODE          : chr  &quot;NY&quot; &quot;GA&quot; &quot;GA&quot; &quot;MS&quot; ...
+##  $ HOME_STATE          : chr  &quot;NEW YORK&quot; &quot;GEORGIA&quot; &quot;GEORGIA&quot; &quot;MISSISSIPPI&quot; ...
+##  $ MARITAL_STATUS      : chr  &quot;MARRIED&quot; &quot;UNKNOWN&quot; &quot;UNKNOWN&quot; &quot;UNKNOWN&quot; ...
+##  $ ETHNICITY           : chr  &quot;WHITE&quot; &quot;WHITE&quot; &quot;WHITE&quot; &quot;WHITE&quot; ...
+##  $ ETHNICITY_1         : chr  &quot;NOT SPECIFIED&quot; &quot;NOT SPECIFIED&quot; &quot;NOT SPECIFIED&quot; &quot;NOT SPECIFIED&quot; ...
+##  $ ETHNICITY_2         : chr  &quot;WHITE&quot; &quot;WHITE&quot; &quot;WHITE&quot; &quot;WHITE&quot; ...
+##  $ DIVISION            : chr  &quot;93 BOMB SQ 19 BOMB GP&quot; &quot;29 RGT CMBT TEAM&quot; &quot;5 RGT 1 CAV DIV&quot; &quot;32 INF 7 DIV&quot; ...
+##  $ INCIDENT_DATE       : chr  &quot;19510412&quot; &quot;19500727&quot; &quot;19510316&quot; &quot;19530122&quot; ...
+##  $ FATALITY_YEAR       : chr  &quot;1951&quot; &quot;1950&quot; &quot;1951&quot; &quot;1953&quot; ...
+##  $ FATALITY_DATE       : chr  &quot;20010402&quot; &quot;19500727&quot; &quot;19510316&quot; &quot;19530122&quot; ...
+##  $ HOSTILITY_CONDITIONS: chr  &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; ...
+##  $ FATALITY            : chr  &quot;DECLARED DEAD&quot; &quot;KILLED IN ACTION&quot; &quot;KILLED IN ACTION&quot; &quot;KILLED IN ACTION&quot; ...
+##  $ BURIAL_STATUS       : chr  &quot;Y&quot; &quot;Y&quot; &quot;Y&quot; &quot;Y&quot; ...</code></pre>
+<p>We see that this data has 36,574 rows and 25 columns. It appears that each row of the data represents an individual service member who died in the Korean War. Note that every single column is a <em>character</em> vector. This includes the rows like <code>BIRTH_YEAR</code> and <code>INCIDENT_DATE</code> that appear like they should be numeric (the fact that they are character means that at least one entry in this column has <em>alphabetic letters</em> rather than <em>numbers</em>).</p>
+</div>
+<div id="cell-level-data-access" class="section level2">
+<h2><span class="header-section-number">2.2</span> Cell level data access</h2>
+<p>This data set contains two dimensions (rows and columns). To access specific rows and columns in R, we use <em>[row,column]</em> format. For example, to access the data in the first row and first column of Korea data, we would use</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">kor[<span class="dv">1</span>,<span class="dv">1</span>]  ##First row, first column</code></pre></div>
+<pre><code>## [1] &quot;V&quot;</code></pre>
+<p>If we want to access the first 5 entries from the first column, we would use</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">kor[<span class="dv">1</span>:<span class="dv">5</span>,<span class="dv">1</span>] ##First five entries from the first column</code></pre></div>
+<pre><code>## [1] &quot;V&quot; &quot;R&quot; &quot;R&quot; &quot;V&quot; &quot;R&quot;</code></pre>
+<p>Now if we want to access the first three rows from the 1st, 3rd, and 8th column, we use the following format</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">kor[<span class="dv">1</span>:<span class="dv">3</span>,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">8</span>)]</code></pre></div>
+<pre><code>##   SERVICE_TYPE             ENROLLMENT BIRTH_YEAR
+## 1            V ACTIVE - GUARD/RESERVE       1917
+## 2            R       ACTIVE - REGULAR       1927
+## 3            R       ACTIVE - REGULAR       1932</code></pre>
+<p>You can also use column names (or headers) to extract data from specific columns. This is especially helpful if you can’t remember respective column numbers, or if you think the column order will ever change. To extract the first three rows of data from <code>BRANCH</code>, <code>RANK</code>, and <code>HOME_STATE</code>, we can use the code below.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">kor[<span class="dv">1</span>:<span class="dv">3</span>,<span class="kw">c</span>(<span class="st">&quot;RANK&quot;</span>,<span class="st">&quot;BRANCH&quot;</span>,<span class="st">&quot;HOME_STATE&quot;</span>)]</code></pre></div>
+<pre><code>##   RANK    BRANCH HOME_STATE
+## 1 CAPT AIR FORCE   NEW YORK
+## 2  PVT      ARMY    GEORGIA
+## 3  PFC      ARMY    GEORGIA</code></pre>
+<p>Remember that each column represents a vector. In addition to the method we just showed, you can access data from each column vector with the following script:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">kor$RANK[<span class="dv">1</span>:<span class="dv">5</span>]  ##Prints first five entries in RANK vector</code></pre></div>
+<pre><code>## [1] &quot;CAPT&quot; &quot;PVT&quot;  &quot;PFC&quot;  &quot;2LT&quot;  &quot;CPL&quot;</code></pre>
+<p>The script above essentially says select the RANK column from the <code>kor</code> data frame, and then print to the screen the first five entries of this column.</p>
+</div>
+<div id="table-command-and-an-example-of-data-cleaning" class="section level2">
+<h2><span class="header-section-number">2.3</span> <code>Table</code> Command (and an example of data “cleaning”)</h2>
+<p>Let’s explore the data a bit more. The <code>table</code> command provides a great way to see all of the possible entries in categorical data. The table command has similar functionality to <em>Pivot Tables</em> in Excel, but is much easier to use. To illustrate this command, we will table the <code>BIRTH_YEAR</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(kor$BIRTH_YEAR) ##Table BIRTH_YEAR</code></pre></div>
+<pre><code>## 
+##      1889 1894 1895 1896 1900 1902 1903 1904 1905 1906 1907 1908 1909 1910 
+## 2271    1    1    1    1    5    7    2   15   14   25   22   26   48   61 
+## 1911 1912 1913 1914 1915 1916 1917 1918 1919 1920 1921 1922 1923 1924 1925 
+##   76  104  116  143  183  224  300  424  421  506  624  657  781  888 1107 
+## 1926 1927 1928 1929 1930 1931 1932 1933 1934 1935   A2   A3   A4  ANT  ART 
+## 1278 1988 3621 4358 5479 5077 3630 1296  328   61    8   16    3    1   31 
+##  AUT  CHI  CLA  COA  COM  CON  COR  CRY  ENG  FIE  FIR  FIX  FUE  GEN  GUN 
+##   13   41    1    1    8    2    4    1    1    6    2    3    1   71    1 
+##  HEA  HIG  INT  LAN  LAU  LIG  LOW  MAJ  MAR  MIL  MIN  MOT  NON  OPE  RAD 
+##   37    4   17    2    1    2   25    1    1    1   20    3    5    6    1 
+##  RAI  SAX  SIG  SNA  STA  TAC   TE  TOP  TRA  TUB  WAR 
+##    2    2    2    2    2    1    2    4   31    1   14</code></pre>
+<p>The table command provides the number of records for each category. Here we learn that our data is a bit messy. Notice that although most of the entries are numerical, that there are numerous entries that don’t look like a year. We can see this again if we table data by gender:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(kor$SEX)  ##Table by gender</code></pre></div>
+<pre><code>## 
+##                    19040000                    19060000 
+##                           2                           1 
+##                    19070000                    19080000 
+##                           3                           1 
+##                    19081017                    19090000 
+##                           1                           1 
+##                    19100000                    19110000 
+##                           4                           6 
+##                    19120000                    19130000 
+##                           1                           2 
+##                    19130816                    19140000 
+##                           1                           3 
+##                    19150000                    19150810 
+##                           7                           1 
+##                    19160000                    19170000 
+##                           6                           2 
+##                    19180000                    19190000 
+##                          11                          14 
+##                    19190222                    19200000 
+##                           1                           7 
+##                    19210000                    19220000 
+##                          13                          11 
+##                    19230000                    19240000 
+##                           6                          16 
+##                    19240905                    19250000 
+##                           1                          15 
+##                    19250511                    19250909 
+##                           1                           1 
+##                    19260000                    19270000 
+##                          20                          19 
+##                    19280000                    19280527 
+##                          36                           1 
+##                    19281122                    19290000 
+##                           1                          47 
+##                    19290821                    19291105 
+##                           1                           1 
+##                    19300000                    19300526 
+##                          41                           1 
+##                    19300624                    19310000 
+##                           1                          36 
+##                    19311003                    19320000 
+##                           1                          15 
+##                    19320525                           F 
+##                           1                           2 
+##                           M                      MANUAL 
+##                       36169                           4 
+##                         S2)                         S3) 
+##                           8                          16 
+##                         S4)  TRACK VEHICLE (3D ECHELON) 
+##                           3                           1 
+##     WHEEL VEHICLE GASOLINE)  WHEEL YEHICLE (3D ECHELON) 
+##                           1                           9</code></pre>
+<p>Note that this doesn’t give just <em>male</em> and <em>female</em>. For our purposes we’re going to try to remove this <em>messy</em> data. Note that in some cases you will want to fix messy data, not remove it. In removing the data, I am going to assume that the same rows of data that produce errors in the GENDER field are the same rows of data that will produce errors in the <code>BIRTH_YEAR</code> data. To remove this data, we will leverage the fact that we want to keep all of the data from <code>BIRTH_YEAR</code> that is numeric, and get rid of every <em>row</em> of data that contains alphabetical <em>character</em> data. In the following code we will coerce this column into numeric data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">kor$BIRTH_YEAR &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(kor$BIRTH_YEAR)</code></pre></div>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<p>The <code>as.numeric</code> command coerces the data to the numeric class. Note that there is also an <code>as.character</code> and <code>as.factor</code> command that will coerce data to these respective data classes. This <code>as.numeric</code> command will create an NA value for every entry that is not numeric. It is now much easier to remove all rows that contain an NA in the <code>BIRTH_YEAR</code> column. The code below provides a way to subset the data by removing the rows that contain an NA value in the <code>BIRTH_YEAR</code> column. There are many ways to subset and cut data in R. Below we will use the bracket functionality that we discussed above. You can also use the <code>subset</code> command in the base R packages. Later in this tutorial we will use the <code>filter</code> command that comes in the <code>dplyr</code> package.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> kor &lt;-<span class="st"> </span>kor[!<span class="kw">is.na</span>(kor$BIRTH_YEAR),]   ##Remove rows that contain an NA value in the BIRTH_YEAR column</code></pre></div>
+<p>In the code above, the <code>is.na</code> function produces a Boolean vector with TRUE values if an NA value is found. The exclamation point means NOT, and changes every TRUE to a FALSE (meaning it now produces a TRUE value if there is NOT an NA in that cell). By feeding this into our bracket functionality, we subset the data by removing all rows that contain an NA in the BIRTH_YEAR column. Now lets check the dimensions of our data:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(kor)</code></pre></div>
+<pre><code>## [1] 33899    25</code></pre>
+<p>We now have 33,899 rows of data, meaning that we lost 2,675 rows of data. If we were conducting an in-depth study of the Korean War Casualties, we couldn’t just delete this data, but would rather have to painstakingly clean it. For our purposes, we are just going to delete it.</p>
+<p>Now let’s see if that cleaned up the GENDER field. To do that, let’s call on the <code>table</code> command again:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(kor$SEX)</code></pre></div>
+<pre><code>## 
+##     F     M 
+##     2 33897</code></pre>
+<p>Notice that the data is now clean, and that in our cleaned data we only have two female casualties recorded. Let’s now use the table command to explore the data a bit more. Let’s create a table by rank:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(kor$RANK)</code></pre></div>
+<pre><code>## 
+##   1LT 1STLT   2LT 2NDLT   A1C   A2C   A3C    AA    AB    AN    BG  CAPT 
+##   665   617   400   221    76    67    30     6     5    28     1   458 
+##   CDR   COL   CPL   CPO   CPT   CW2  CWO2 CWO-2    DN   ENS    FA    FN 
+##     8    24  6035    25   239     4     3     1     1    61    16    29 
+##   GEN    HA    HN  LCDR    LT   LTC LTCOL  LTJG   MAJ    MG   MSG  MSGT 
+##     1     2    52    12    55    24    37    79   165     1   471    68 
+##   PFC   PO1   PO2   PO3   PV1   PVT    SA   SFC   SGT    SN   SSG  SSGT 
+## 12826    44    32   119     7  6633    27  1154  2594    59     1   301 
+##  TSGT   WO1 
+##    97    18</code></pre>
+<p>From this we learn that the PFC rank sustained the highest casualty numbers, and that the highest ranking casualty was a General (assuming this means 4-star General). Now let’s explore NATIONALITY. We assume that this is all US Nationality, but when we run this table command</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(kor$NATIONALITY)</code></pre></div>
+<pre><code>## 
+##    CA    DA    EI    RP    UK    US 
+##     6     1     1     1     1 33889</code></pre>
+<p>we find out that there are a few other nationalities represented in the data. It’s interesting when we table the MARITAL_STATUS field that</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(kor$MARITAL_STATUS)</code></pre></div>
+<pre><code>## 
+##      ANNULLED      DIVORCED       MARRIED NEVER MARRIED       UNKNOWN 
+##             2            18          1129           993         31756 
+##       WIDOWED 
+##             1</code></pre>
+<p>we find out that the marital status of most of the casualties was unknown (which makes you wonder about the Defense Department data collection during the Korean War). Now let’s move on to filtering (or extracting a subset) of our data.</p>
+</div>
+<div id="filter-or-subset-data" class="section level2">
+<h2><span class="header-section-number">2.4</span> Filter (or subset) data</h2>
+<p>Extracting a subset of data is one of the most fundamental tasks of data manipulation. There a many different ways to filter data in R. In addition to using the <em>bracket</em> functionality discussed above, you could use the <code>subset</code> command provided in Base R. Today, one of the foremost R Programming Developers (Hadley Wickam) has developed a special packages called <code>dplyr</code> [<span class="citation">(Wickham and Francois <a href="#ref-R-dplyr">2016</a>)</span> and <code>tidyr</code> <span class="citation">(Wickham <a href="#ref-R-tidyr">2016</a>)</span> just for data wrangling. For the sake of simplicity, we will attempt to primarily use these packages for data wrangling in this course.</p>
+<p><img src="dplyr.png" alt="dplyr" /> <img src="tidyr.png" alt="tidyr" /></p>
+<p>Given a two dimensional data structure, we can think of several ways we might want to extract data. The first is to extract rows associated with a certain feature. For example, if we had some basic data from an Army Physical Fitness (APFT) test, we may want to extract rows based on GENDER, as seen below.</p>
+<div class="figure">
+<img src="filterRow.PNG" alt="Figure 2: Filtering Rows by Categorical Variable" />
+<p class="caption">Figure 2: Filtering Rows by Categorical Variable</p>
+</div>
+<p>If we were going to conduct this same operation (extract all FEMALE records) on our <code>kor</code> data frame with the <code>dplyr</code> package, we would execute the following command:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+kor_female &lt;-<span class="st"> </span>dplyr::<span class="kw">filter</span>(kor, SEX==<span class="st">&quot;F&quot;</span>)</code></pre></div>
+<p>This command should produce a new data frame in your environment that has has two rows and 25 columns. This new data frame only contains the two FEMALE casualties represented in the data. To explore this much smaller data set, we could now table the data frame based on state:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(kor_female$HOME_STATE)</code></pre></div>
+<pre><code>## 
+##          IOWA WEST VIRGINIA 
+##             1             1</code></pre>
+<p>and find out that one woman is from Iowa, and the other from West Virginia. If we table based on rank:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(kor_female$RANK)</code></pre></div>
+<pre><code>## 
+## 1STLT 
+##     2</code></pre>
+<p>we find out that both women were junior officers. If you take a look at the data further, you will learn that both women were in the Air Force and died in a non-hostile accident in 1952 on the same day (presumably the same accident).</p>
+<p>Note that we can also filter rows based on a Boolean function. For example, if we wanted to only look at casualties that were over 30 years old in 1950, we could filter with the following <code>dplyr</code> command:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">kor_Over30 &lt;-<span class="st"> </span><span class="kw">filter</span>(kor, BIRTH_YEAR &lt;<span class="st"> </span><span class="dv">1920</span>)  ##Filter those older than 30 in 1950</code></pre></div>
+<p>When you run this command, you will find that our cleaned data produces 2220 records of casualties that were over 30 in the year 1950. If we wanted to only select those individuals that were in their 30’s in 1950, we would use the following <code>dplyr</code> command:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">kor_30s &lt;-<span class="st"> </span><span class="kw">filter</span>(kor, BIRTH_YEAR &lt;<span class="st"> </span><span class="dv">1920</span> &amp;<span class="st"> </span>BIRTH_YEAR &gt;<span class="st"> </span><span class="dv">1910</span>)</code></pre></div>
+<p>Running this command we find that 1,991 of the casualties were in their 30’s in 1950.</p>
+<p>Now that we’ve filtered by row, let’s show how to filter by column. We’ve already demonstrated above how to do this with the bracket notation, now we will illustrate how to do this using the <code>dplyr</code> package. We often find that we’ve loaded data that has many columns that we’re not interested in. In these cases, it is often helpful to extract the columns that we’re interested in. This will also shrink the size of our data in memory, and make our code run faster. In the picture below, we illustrate this with some simple APFT data (in this case we’re extracting the demographic and raw score columns):</p>
+<div class="figure">
+<img src="filterColumn.PNG" alt="Figure 3: Filtering Specific Columns (or fields)" />
+<p class="caption">Figure 3: Filtering Specific Columns (or fields)</p>
+</div>
+<p>Let’s say we were studying the Korean Casualty data to understand the time factor of those who died of wounds, and were particularly interested in the time between <code>INCIDENT_DATE</code> and <code>FATALITY_DATE</code>. Below we’ll extract these two columns with the <code>dplyr</code> package:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">kor_dates &lt;-<span class="st"> </span><span class="kw">select</span>(kor, <span class="kw">one_of</span>(<span class="kw">c</span>(<span class="st">&quot;INCIDENT_DATE&quot;</span>,<span class="st">&quot;FATALITY_DATE&quot;</span>))) <span class="co">#Select two columns</span></code></pre></div>
+<p>Now if we look at the structure of this new data frame:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(kor_dates)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    33899 obs. of  2 variables:
+##  $ INCIDENT_DATE: chr  &quot;19510412&quot; &quot;19500727&quot; &quot;19510316&quot; &quot;19530122&quot; ...
+##  $ FATALITY_DATE: chr  &quot;20010402&quot; &quot;19500727&quot; &quot;19510316&quot; &quot;19530122&quot; ...</code></pre>
+<p>We see that we only have two columns, but still have all 33,899 rows. The code below is beyond the extent of this lesson on filtering (it contains some code we’ll go over in Lesson 5) but is interesting to look at the difference between incident date and fatality date. In this code we will load the <code>lubridate</code> package <span class="citation">(Grolemund, Spinu, and Wickham <a href="#ref-R-lubridate">2016</a>)</span> (another package written by Hadley Wickam) and use it to convert these two columns to date format and calculate the difference between them (i.e. the number of days between the incident that the death of the Service Member).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate)
+days &lt;-<span class="st"> </span><span class="kw">ymd</span>(kor_dates$FATALITY_DATE) -<span class="st"> </span><span class="kw">ymd</span>(kor_dates$INCIDENT_DATE)
+days[<span class="dv">1</span>:<span class="dv">100</span>]</code></pre></div>
+<pre><code>## Time differences in days
+##   [1] 18253     0     0     0     0     0     0     0     0     0 17697
+##  [12]     0     0     0 18342    31     0     0     0  1153     0     3
+##  [23]     0     0   355     0     0     0     0     0     0     0    53
+##  [34]     0     0     0     0     0     0     0     0    NA     0     0
+##  [45]    NA   469     0     0    NA     0     0   981     0     0     0
+##  [56]     0     0  1131  1155    46     0     0     0     0     0    NA
+##  [67]     0    NA     0  1125   959     0   469     0     0     0   969
+##  [78]     0     0    31     0  1130     0     0     0 17568     0  1155
+##  [89]   120     0   177     0   154     0     0     7     0     0    NA
+## [100]     0</code></pre>
+<p>Looking at the first few entries makes us wonder. The very first entry had 18,253 days between the incident and the fatality. In fact, if you look closer at the dates, you will see that this Service Member had an incident on 12 April 1951, but wasn’t considered a fatality until 2 April 2001. In fact, if we quickly plot a histogram of the difference in days (you’ll learn this command next lesson):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#plot histogram of difference in days</span>
+<span class="kw">hist</span>(<span class="kw">as.numeric</span>(days), <span class="dt">main=</span><span class="st">&quot;Histogram of Difference in Days&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Days&quot;</span>)  </code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
+<p>Here we see that there’s a number of casualties that seem to have a fatality day around the year 2000. If you look at the original data will see that the first Service Member in the data (an Air Force Captain) is listed with an incident year of 1951 and <code>FATALITY_DATE</code> in 2001. Notice that the FATALITY status is <em>DECLARED DEAD</em>. This officer, as part of a bombing group, must have had an MIA status for several decades until finally “declared dead” in 2001. The “declared dead” date became his fatality date, which means it would be difficult to evaluate the temporal aspect of wound care with this data.</p>
+</div>
+<div id="using-the-grep-and-aggregate-commands" class="section level2">
+<h2><span class="header-section-number">2.5</span> Using the grep and aggregate commands</h2>
+<p>The following video illustrates how to use the grep and aggregate commands. This video will use movie rating data that you downloaded in Lesson 1.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">download.file</span>(<span class="st">&quot;https://s3.amazonaws.com/dscoe-data/rating2.csv&quot;</span>, <span class="dt">destfile =</span> <span class="st">&quot;rating2.csv&quot;</span>)</code></pre></div>
+<iframe width="800" height="500" src="https://www.youtube.com/embed/05VPIKAh9tE" frameborder="0" allowfullscreen>
+</iframe>
+</div>
+<div id="summary" class="section level2">
+<h2><span class="header-section-number">2.6</span> Summary</h2>
+<p>What we have seen is that R produces a great platform to rapidly “wrangle” and explore data.</p>
+</div>
+<div id="practice-problem-1" class="section level2">
+<h2><span class="header-section-number">2.7</span> Practice Problem</h2>
+<ol style="list-style-type: decimal">
+<li>Use grep to determine how many casualties had *INFANTRY somewhere in their title (use the <code>POSITION</code> field).</li>
+</ol>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-R-dplyr">
+<p>Wickham, Hadley, and Romain Francois. 2016. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr" class="uri">https://CRAN.R-project.org/package=dplyr</a>.</p>
+</div>
+<div id="ref-R-tidyr">
+<p>Wickham, Hadley. 2016. <em>Tidyr: Easily Tidy Data with ‘Spread()‘ and ‘Gather()‘ Functions</em>. <a href="https://CRAN.R-project.org/package=tidyr" class="uri">https://CRAN.R-project.org/package=tidyr</a>.</p>
+</div>
+<div id="ref-R-lubridate">
+<p>Grolemund, Garrett, Vitalie Spinu, and Hadley Wickham. 2016. <em>Lubridate: Make Dealing with Dates a Little Easier</em>. <a href="https://CRAN.R-project.org/package=lubridate" class="uri">https://CRAN.R-project.org/package=lubridate</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="basic-visualization.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-munging.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
